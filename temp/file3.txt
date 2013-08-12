@@ -1,0 +1,122 @@
+gi3.pack(j,"clientnode4");
+
+		gp1c1.str=s;
+		for(int i=0;i<=7;i++)
+	    {
+		System.out.println("Packet["+i+"]"+s[i]+"\n");
+	    }
+
+	}catch(Exception e){}	
+			
+}
+	
+public String packetno(int m) throws RemoteException
+	{
+		
+		System.out.println("Value of m is"+ m);	
+		System.out.println("Missed String is"+gp1c1.mst);
+		
+		return gp1c1.mst;
+
+	}
+	
+public void  pack(int i,String name) throws RemoteException
+	{
+
+		if(name.equals("receiver"))
+		{
+	//		gp1c1.ta1.append("Packet["+i+"]:PACK");
+	//		gp1c1.ta1.append("\n");
+		}
+		else
+		{
+	//		gp1c1.ta2.append("Packet["+i+"]:PACK");
+	//		gp1c1.ta2.append("\n");
+		}
+
+		/*try
+		{
+		Thread.sleep(500);
+
+		}catch(Exception e){} */
+
+
+	}	
+
+
+public void  nack(int i,String name1) throws RemoteException
+	{
+		if(name1.equals("receiver"))
+		{
+	//	gp1c1.ta1.append("Packet["+i+"]:NACK");
+	//	gp1c1.ta1.append("\n");
+		}
+		else
+		{
+	//	gp1c1.ta2.append("Packet["+i+"]:NACK");
+	//	gp1c1.ta2.append("\n");
+		}
+
+		System.out.println("Package["+i+"]:NACK");
+	}
+	
+public static void main(String args[])
+{
+try
+{
+clientnode4 c1=new clientnode4();
+Naming.rebind("clientnode4",c1);
+}catch(Exception e){}
+
+gp1c1=new clientnode4design();
+
+gp1c1.setSize(900,750);
+gp1c1.setResizable(false);
+gp1c1.setTitle("Risk-Aware Mitigation for MANET Routing Attacks");						   
+gp1c1.show();
+
+}
+
+
+}
+
+
+
+
+
+class c4ser1 extends Thread
+{
+	String[] pmes=new String[10];
+	String s1;
+	Thread t;	
+
+	c4ser1(String[] ps)
+	{
+		System.out.println("Client4");
+		this.pmes=ps;
+		t=new Thread(this,"cc1");
+		t.start();
+		
+	}
+	
+	public void run()
+	{
+		System.out.println("Run method is clalled");
+		s1="rmi://localhost/receiver";	
+			
+		
+		try
+		{
+			System.out.println("With in run method");
+	
+			spaninter gc1=(spaninter)Naming.lookup(s1);
+			gc1.getfile(pmes,"clientnode4");
+
+			t.sleep(2500);
+		}catch(Exception e){}
+	}
+
+	
+
+}
+

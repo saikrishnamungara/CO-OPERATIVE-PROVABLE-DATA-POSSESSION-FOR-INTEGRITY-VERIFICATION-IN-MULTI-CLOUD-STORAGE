@@ -1,0 +1,118 @@
+  imageLabel.setIcon(ii);
+        imageLabel.setBounds(350,150,400,300);
+	    imageLabel.setBackground(new Color(193,222,216));
+		add(imageLabel);
+		
+	
+		
+		
+	
+
+  	
+		
+		jPanel2.add(jLabel1);
+        jPanel1.add(jLabel8);
+        jPanel1.add(jPanel2);
+        jPanel1.add(jLabel3);
+
+	
+
+        getContentPane().add(jPanel1);
+
+        pack();
+		
+		
+		
+    }//GEN-END:initComponents
+
+   
+
+
+
+
+	   
+    private void exitForm(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_exitForm
+        System.exit(0);
+    }//GEN-LAST:event_exitForm
+    
+    
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+  
+    private javax.swing.JLabel jLabel1;    
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane sp1;
+    public javax.swing.JTextArea jTextArea1;
+     private javax.swing.JLabel jLabel3;
+
+    // End of variables declaration//GEN-END:variables
+    
+}
+
+
+public class clientnode4 extends UnicastRemoteObject implements spaninter
+{
+	String[] str=new String[10];
+	static clientnode4design gp1c1;
+	spaninter gi3;
+	
+
+	public clientnode4() throws RemoteException
+	{
+	}
+
+	public void getfile(String[] s,String sname)
+	{
+		try
+		{
+		
+		String ms,gs3;
+		
+		int j=0;
+
+			
+	
+			if(sname.equals("source"))
+			{	
+				System.out.println("call from server");
+			
+				gs3="rmi://localhost/source";
+				gi3=(spaninter)Naming.lookup(gs3);		
+			}
+			else
+			{
+				gs3="rmi://localhost/gp1client2";
+				gi3=(spaninter)Naming.lookup(gs3);
+			}
+
+		  for(int i=0;i<=7;i++)
+		   {
+			
+
+			if(s[i] !=null)
+			{
+				
+				
+				gi3.pack(i,"clientnode4");
+				
+				try
+				{
+				Thread.sleep(500);
+				}catch(Exception e){}
+			
+			}
+			else
+			{
+				j=i;
+				gi3.nack(i,"clientnode4");
+										
+			}
+	
+				
+		}
+		
+		s[j]=gi3.packetno(j);
+
+		

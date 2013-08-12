@@ -1,0 +1,79 @@
+import java.io.*;
+import java.awt.*;
+//import java.awt.event.*;
+import javax.swing.*;
+import java.rmi.*;
+import java.rmi.server.*;
+import java.net.*;
+import java.util.*;
+
+class clientnode4design extends javax.swing.JFrame 
+{
+
+    String filesel,st,mst;
+	String[] pmes;
+	String[] str=new String[10];
+	File f;	
+	byte[] buffer;
+	Random r;
+	FileInputStream fin;	
+
+   	public clientnode4design()	{
+        		initComponents();
+				
+		
+    	}
+    
+     private void initComponents() {//GEN-BEGIN:initComponents
+    
+	
+         jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+    
+        jLabel8 = new javax.swing.JLabel();
+
+
+
+        getContentPane().setLayout(null);
+
+        jPanel1.setLayout(null);
+
+
+        jPanel1.setBackground(new java.awt.Color(195,21,192));
+        jPanel2.setBackground(new java.awt.Color(251,179,251));
+
+
+        jLabel1.setFont(new java.awt.Font("MS Sans Serif", 1, 18));
+       
+        jLabel3.setFont(new java.awt.Font("MS Sans Serif", 1, 10));
+
+        jLabel8.setFont(new java.awt.Font("MS Sans Serif", 3, 24));
+
+     
+
+        jLabel1.setText("Risk-Aware Mitigation for MANET Routing Attacks");
+     
+        jLabel8.setText("Middle-Node-4");
+        jLabel3.setText("Chennai Sunday Systems Private Ltd");
+
+ 
+
+        jPanel1.setBounds(0, 0, 900, 750);
+        jPanel2.setBounds(150, 10, 600, 50);
+    
+
+        jLabel1.setForeground(Color.white);
+        jLabel8.setForeground(Color.black);
+        jLabel3.setForeground(Color.black);
+        
+        jLabel1.setBounds(10, 20, 900, 30);        
+        jLabel8.setBounds(380, 60, 200, 30);
+        jLabel3.setBounds(50, 600, 200, 30);
+
+		
+        JLabel imageLabel = new JLabel();
+        ImageIcon ii = new ImageIcon(this.getClass().getResource("network.GIF"));
+      
